@@ -226,6 +226,5 @@ Email: __________________________________   Company Website: ___________________
             <img src="images/dold.svg" alt="Dold">
             <img src="images/comitronic.png" alt="Comitronic">
             <img src="images/adelsystem.png" alt="Adelsystem">
-            
     </div>
 </div>
