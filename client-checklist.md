@@ -1,9 +1,10 @@
--------------------------------------------------------------------
-                            Industrial Safety Controls, Inc
-Website: www.safeworkplace.org
-Phone: (262) 652-8660
-Email: joe@industrialsafetycontrols.com | safetysensing@earthlink.net
--------------------------------------------------------------------
+ <div style="text-align:center;">
+    <img src="images/logo.webp" alt="ISC, Inc."  style="width:250px">
+   <br>
+    www.safeworkplace.org<br>
+    (262) 652-8660<br>
+    joe@industrialsafetycontrols.com | safetysensing@earthlink.net
+</div>
 
 <style type="text/css">
     .tg td{
@@ -32,6 +33,16 @@ Email: joe@industrialsafetycontrols.com | safetysensing@earthlink.net
         font-weight:bold;
         text-align:left;
         vertical-align:top;
+        }
+
+        .footer {
+        text-align: center;
+        margin-top: 20px; /* Adjust spacing as needed */
+        }
+
+        .footer img {
+            width: 100px; /* Adjust the width of the images */
+            margin: 0 10px; /* Adjust spacing between images */
         }
 </style>
 
@@ -200,3 +211,15 @@ Email: __________________________________   Company Website: ___________________
 **Cross Reference Part Number:**
 
 -------------------------------------------------------------------
+<div style="text-align: center">
+    <div class="footer">
+            <img src="images/rees-inc-logo.png" alt="Rees">
+            <img src="images/suns.png" alt="SUNS">
+            <img src="images/contrinex.png" alt="Contrinex">
+            <img src="images/salzer.png" alt="Saelzer">
+            <img src="images/roland.png" alt="Roland Electronic">
+            <img src="images/aso-safety-solutions.png" alt="ASO">
+            <img src="images/rechner.jpeg" alt="rechner">
+             <img src="images/pizzato.webp" alt="pizzato">
+    </div>
+</div>
