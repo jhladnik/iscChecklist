@@ -219,7 +219,13 @@ Email: __________________________________   Company Website: ___________________
             <img src="images/salzer.png" alt="Saelzer">
             <img src="images/roland.png" alt="Roland Electronic">
             <img src="images/aso-safety-solutions.png" alt="ASO">
-            <img src="images/rechner.jpeg" alt="rechner">
-             <img src="images/pizzato.webp" alt="pizzato">
+            <img src="images/lineseiki.webp" alt="Lineseiki">
+            <img src="images/rechner.jpeg" alt="Rechner">
+            <img src="images/pizzato.webp" alt="Pizzato">
+            <img src="images/bernstein.jpeg" alt="Bernstein">
+            <img src="images/dold.svg" alt="Dold">
+            <img src="images/comitronic.png" alt="Comitronic">
+            <img src="images/adelsystem.png" alt="Adelsystem">
+            
     </div>
 </div>
