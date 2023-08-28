@@ -26,8 +26,8 @@
         width: 1657px;
         }
     .tg .tg-fpmh{
-        color: rgba(191, 191, 191); 
-        background-color: rgba(249, 216, 73);
+        color: rgba(162, 164, 166); 
+        background-color: rgba(252, 211, 45);
         border-radius: 7px; 
         font-family:Arial, Helvetica, sans-serif !important;font-size:22px;
         font-weight:bold;
