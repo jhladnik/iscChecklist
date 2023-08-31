@@ -1,267 +1,377 @@
-<!DOCTYPE html><html><head>
-      <title>client-checklist</title>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      
-      <link rel="stylesheet" href="file:////Users/joehladnik/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.6.10/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      <style>
-      /**
- * prism.js Github theme based on GitHub's theme.
- * @author Sam Clarke
+<!DOCTYPE html>
+<html>
+<head>
+<title>client-checklist.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
  */
-code[class*="language-"],
-pre[class*="language-"] {
-  color: #333;
-  background: none;
-  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  text-align: left;
-  white-space: pre;
-  word-spacing: normal;
-  word-break: normal;
-  word-wrap: normal;
-  line-height: 1.4;
 
-  -moz-tab-size: 8;
-  -o-tab-size: 8;
-  tab-size: 8;
-
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
-  hyphens: none;
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
 }
 
-/* Code blocks */
-pre[class*="language-"] {
-  padding: .8em;
-  overflow: auto;
-  /* border: 1px solid #ddd; */
-  border-radius: 3px;
-  /* background: #fff; */
-  background: #f5f5f5;
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
 }
 
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-  padding: .1em;
-  border-radius: .3em;
-  white-space: normal;
-  background: #f5f5f5;
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
 }
 
-.token.comment,
-.token.blockquote {
-  color: #969896;
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
 }
 
-.token.cdata {
-  color: #183691;
+.emoji {
+	height: 1.4em;
 }
 
-.token.doctype,
-.token.punctuation,
-.token.variable,
-.token.macro.property {
-  color: #333;
+code {
+	font-size: 14px;
+	line-height: 19px;
 }
 
-.token.operator,
-.token.important,
-.token.keyword,
-.token.rule,
-.token.builtin {
-  color: #a71d5d;
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
 }
 
-.token.string,
-.token.url,
-.token.regex,
-.token.attr-value {
-  color: #183691;
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
 }
 
-.token.property,
-.token.number,
-.token.boolean,
-.token.entity,
-.token.atrule,
-.token.constant,
-.token.symbol,
-.token.command,
-.token.code {
-  color: #0086b3;
-}
+</style>
 
-.token.tag,
-.token.selector,
-.token.prolog {
-  color: #63a35c;
-}
-
-.token.function,
-.token.namespace,
-.token.pseudo-element,
-.token.class,
-.token.class-name,
-.token.pseudo-class,
-.token.id,
-.token.url-reference .token.variable,
-.token.attr-name {
-  color: #795da3;
-}
-
-.token.entity {
-  cursor: help;
-}
-
-.token.title,
-.token.title .token.punctuation {
-  font-weight: bold;
-  color: #1d3e81;
-}
-
-.token.list {
-  color: #ed6a43;
-}
-
-.token.inserted {
-  background-color: #eaffea;
-  color: #55a532;
-}
-
-.token.deleted {
-  background-color: #ffecec;
-  color: #bd2c00;
-}
-
-.token.bold {
-  font-weight: bold;
-}
-
-.token.italic {
-  font-style: italic;
-}
-
-
-/* JSON */
-.language-json .token.property {
-  color: #183691;
-}
-
-.language-markup .token.tag .token.punctuation {
-  color: #333;
-}
-
-/* CSS */
-code.language-css,
-.language-css .token.function {
-  color: #0086b3;
-}
-
-/* YAML */
-.language-yaml .token.atrule {
-  color: #63a35c;
-}
-
-code.language-yaml {
-  color: #183691;
-}
-
-/* Ruby */
-.language-ruby .token.function {
-  color: #333;
-}
-
-/* Markdown */
-.language-markdown .token.url {
-  color: #795da3;
-}
-
-/* Makefile */
-.language-makefile .token.symbol {
-  color: #795da3;
-}
-
-.language-makefile .token.variable {
-  color: #183691;
-}
-
-.language-makefile .token.builtin {
-  color: #0086b3;
-}
-
-/* Bash */
-.language-bash .token.keyword {
-  color: #0086b3;
-}
-
-/* highlight */
-pre[data-line] {
-  position: relative;
-  padding: 1em 0 1em 3em;
-}
-pre[data-line] .line-highlight-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: transparent;
-  display: block;
-  width: 100%;
-}
-
-pre[data-line] .line-highlight {
-  position: absolute;
-  left: 0;
-  right: 0;
-  padding: inherit 0;
-  margin-top: 1em;
-  background: hsla(24, 20%, 50%,.08);
-  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
-  pointer-events: none;
-  line-height: inherit;
-  white-space: pre;
-}
-
-pre[data-line] .line-highlight:before, 
-pre[data-line] .line-highlight[data-end]:after {
-  content: attr(data-start);
-  position: absolute;
-  top: .4em;
-  left: .6em;
-  min-width: 1em;
-  padding: 0 .5em;
-  background-color: hsla(24, 20%, 50%,.4);
-  color: hsl(24, 20%, 95%);
-  font: bold 65%/1.5 sans-serif;
-  text-align: center;
-  vertical-align: .3em;
-  border-radius: 999px;
-  text-shadow: none;
-  box-shadow: 0 1px white;
-}
-
-pre[data-line] .line-highlight[data-end]:after {
-  content: attr(data-end);
-  top: auto;
-  bottom: .4em;
-}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
-/* Please visit the URL below for more information: */
-/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
-
-      </style>
-    </head>
-    <body for="html-export">
-      <div class="mume markdown-preview  ">
-      <div><hr>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+ <div style="text-align:center;">
+    <img src="images/logo.webp" alt="ISC, Inc."  style="width:250px">
+   <br>
+    www.safeworkplace.org<br>
+    (262) 652-8660<br>
+    joe@industrialsafetycontrols.com | safetysensing@earthlink.net
+</div>
 <style type="text/css">
     .tg td{
         font-family:Arial, sans-serif;
@@ -282,19 +392,31 @@ pre[data-line] .line-highlight[data-end]:after {
         width: 1657px;
         }
     .tg .tg-fpmh{
-        color: rgba(191, 191, 191); 
-        background-color: rgba(249, 216, 73);
+        color: rgba(162, 164, 166); 
+        background-color: rgba(252, 211, 45);
         border-radius: 7px; 
         font-family:Arial, Helvetica, sans-serif !important;font-size:22px;
         font-weight:bold;
         text-align:left;
         vertical-align:top;
         }
+
+        .footer {
+        text-align: center;
+        margin-top: 20px; /* Adjust spacing as needed */
+        }
+
+        .footer img {
+            width: 100px; /* Adjust the width of the images */
+            margin: 0 10px; /* Adjust spacing between images */
+        }
+
+    
 </style>
 <table class="tg">
     <thead>
     <tr>
-        <th class="tg-fpmh">Contact Information</th>
+        <th class="tg-fpmh" >Contact Information</th>
     </tr>
     </thead>
 </table>
@@ -305,46 +427,46 @@ pre[data-line] .line-highlight[data-end]:after {
 <table class="tg">
     <thead>
     <tr>
-        <th class="tg-fpmh">SAFETY RELAYS</th>
+        <th class="tg-fpmh" >SAFETY RELAYS</th>
     </tr>
     </thead>
 </table>
 <p><strong>Application:</strong></p>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Emergency Stop</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Two Hand Control</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Interlock Switch</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Non-Contact Safety Switch</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Solenoid Interlock Switch</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Mat</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Light Curtain</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Relay Time Delayed Outputs</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Laser Scanner</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Single or Multiple Beams</li>
+<ul style="list-style: none;">
+<li><input type="checkbox" id="checkbox0"><label for="checkbox0">Emergency Stop</label></li>
+<li><input type="checkbox" id="checkbox1"><label for="checkbox1">Two Hand Control</label></li>
+<li><input type="checkbox" id="checkbox2"><label for="checkbox2">Safety Interlock Switch</label></li>
+<li><input type="checkbox" id="checkbox3"><label for="checkbox3">Non-Contact Safety Switch</label></li>
+<li><input type="checkbox" id="checkbox4"><label for="checkbox4">Safety Solenoid Interlock Switch</label></li>
+<li><input type="checkbox" id="checkbox5"><label for="checkbox5">Safety Mat</label></li>
+<li><input type="checkbox" id="checkbox6"><label for="checkbox6">Safety Light Curtain</label></li>
+<li><input type="checkbox" id="checkbox7"><label for="checkbox7">Safety Relay Time Delayed Outputs</label></li>
+<li><input type="checkbox" id="checkbox8"><label for="checkbox8">Safety Laser Scanner</label></li>
+<li><input type="checkbox" id="checkbox9"><label for="checkbox9">Safety Single or Multiple Beams</label></li>
 </ul>
 <p><strong>Type:</strong></p>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Single Purpose Safety Relay</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Dual Input Safety Relay</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Programmable Safety Relay</li>
+<ul style="list-style: none;">
+<li><input type="checkbox" id="checkbox10"><label for="checkbox10">Single Purpose Safety Relay</label></li>
+<li><input type="checkbox" id="checkbox11"><label for="checkbox11">Dual Input Safety Relay</label></li>
+<li><input type="checkbox" id="checkbox12"><label for="checkbox12">Programmable Safety Relay</label></li>
 </ul>
 <p><strong>Voltage Requirement:</strong></p>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> 24VDC</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> 110VAC</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> 230VAC</li>
+<ul style="list-style: none;">
+<li><input type="checkbox" id="checkbox13"><label for="checkbox13">24VDC</label></li>
+<li><input type="checkbox" id="checkbox14"><label for="checkbox14">110VAC</label></li>
+<li><input type="checkbox" id="checkbox15"><label for="checkbox15">230VAC</label></li>
 </ul>
 <p><strong>Circuit Type:</strong></p>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Emergency Stop Circuit</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Stop Circuit</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Dual Channel</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Single Channel</li>
+<ul style="list-style: none;">
+<li><input type="checkbox" id="checkbox16"><label for="checkbox16">Emergency Stop Circuit</label></li>
+<li><input type="checkbox" id="checkbox17"><label for="checkbox17">Safety Stop Circuit</label></li>
+<li><input type="checkbox" id="checkbox18"><label for="checkbox18">Dual Channel</label></li>
+<li><input type="checkbox" id="checkbox19"><label for="checkbox19">Single Channel</label></li>
 </ul>
 <p><strong>Related Safety Relays:</strong></p>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Standstill Monitor</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> DC Brake</li>
+<ul style="list-style: none;">
+<li><input type="checkbox" id="checkbox20"><label for="checkbox20">Standstill Monitor</label></li>
+<li><input type="checkbox" id="checkbox21"><label for="checkbox21">DC Brake</label></li>
 </ul>
 <p><strong>Other Requirements:</strong></p>
 <p><strong>Quantity Needed For This Project:</strong></p>
@@ -354,30 +476,30 @@ pre[data-line] .line-highlight[data-end]:after {
 <table class="tg">
     <thead>
     <tr>
-        <th class="tg-fpmh">SAFETY COMPONENT REQUIREMENTS</th>
+        <th class="tg-fpmh" >SAFETY COMPONENT REQUIREMENTS</th>
     </tr>
     </thead>
 </table>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Light Curtains</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Two Hand Controls</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Emergency Stop Button</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Mats</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Sensing Edge</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Bumber Switch</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Trapped Key Interlocking</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Interlock Switch</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Latching Interlock Switch</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> RFID Safety Switch</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Non-Contact Safety Switch</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Hinge Safety Switch</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Laser Scanner</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Single or Multi-Beam</li>
+<ul style="list-style: none;">
+<li><input type="checkbox" id="checkbox22"><label for="checkbox22">Light Curtains</label></li>
+<li><input type="checkbox" id="checkbox23"><label for="checkbox23">Two Hand Controls</label></li>
+<li><input type="checkbox" id="checkbox24"><label for="checkbox24">Emergency Stop Button</label></li>
+<li><input type="checkbox" id="checkbox25"><label for="checkbox25">Safety Mats</label></li>
+<li><input type="checkbox" id="checkbox26"><label for="checkbox26">Sensing Edge</label></li>
+<li><input type="checkbox" id="checkbox27"><label for="checkbox27">Bumber Switch</label></li>
+<li><input type="checkbox" id="checkbox28"><label for="checkbox28">Trapped Key Interlocking</label></li>
+<li><input type="checkbox" id="checkbox29"><label for="checkbox29">Interlock Switch</label></li>
+<li><input type="checkbox" id="checkbox30"><label for="checkbox30">Latching Interlock Switch</label></li>
+<li><input type="checkbox" id="checkbox31"><label for="checkbox31">RFID Safety Switch</label></li>
+<li><input type="checkbox" id="checkbox32"><label for="checkbox32">Non-Contact Safety Switch</label></li>
+<li><input type="checkbox" id="checkbox33"><label for="checkbox33">Hinge Safety Switch</label></li>
+<li><input type="checkbox" id="checkbox34"><label for="checkbox34">Laser Scanner</label></li>
+<li><input type="checkbox" id="checkbox35"><label for="checkbox35">Single or Multi-Beam</label></li>
 </ul>
 <p><strong>Special Ratings:</strong></p>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> IP69K</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> EX Proof</li>
+<ul style="list-style: none;">
+<li><input type="checkbox" id="checkbox36"><label for="checkbox36">IP69K</label></li>
+<li><input type="checkbox" id="checkbox37"><label for="checkbox37">EX Proof</label></li>
 </ul>
 <p><strong>Other Requirements:</strong></p>
 <p><strong>Quantity Needed For This Project:</strong></p>
@@ -387,75 +509,81 @@ pre[data-line] .line-highlight[data-end]:after {
 <table class="tg">
     <thead>
     <tr>
-        <th class="tg-fpmh">MACHINE SAFEGUARDING PRODUCTS</th>
+        <th class="tg-fpmh" >MACHINE SAFEGUARDING PRODUCTS</th>
     </tr>
     </thead>
 </table>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Physical Guarding</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Light Curtain</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Laser Scanner</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Single or Multi-Beam System</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Mats</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Sensing Edge</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Safety Bumper Switch</li>
+<ul style="list-style: none;">
+<li><input type="checkbox" id="checkbox38"><label for="checkbox38">Physical Guarding</label></li>
+<li><input type="checkbox" id="checkbox39"><label for="checkbox39">Safety Light Curtain</label></li>
+<li><input type="checkbox" id="checkbox40"><label for="checkbox40">Safety Laser Scanner</label></li>
+<li><input type="checkbox" id="checkbox41"><label for="checkbox41">Safety Single or Multi-Beam System</label></li>
+<li><input type="checkbox" id="checkbox42"><label for="checkbox42">Safety Mats</label></li>
+<li><input type="checkbox" id="checkbox43"><label for="checkbox43">Safety Sensing Edge</label></li>
+<li><input type="checkbox" id="checkbox44"><label for="checkbox44">Safety Bumper Switch</label></li>
 </ul>
 <p><strong>Emergency Stop Button:</strong></p>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> 22mm</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> 30mm</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Oversized</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Illuminated</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> w/ Lockout Feature</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> w/ Enclosure</li>
+<ul style="list-style: none;">
+<li><input type="checkbox" id="checkbox45"><label for="checkbox45">22mm</label></li>
+<li><input type="checkbox" id="checkbox46"><label for="checkbox46">30mm</label></li>
+<li><input type="checkbox" id="checkbox47"><label for="checkbox47">Oversized</label></li>
+<li><input type="checkbox" id="checkbox48"><label for="checkbox48">Illuminated</label></li>
+<li><input type="checkbox" id="checkbox49"><label for="checkbox49">w/ Lockout Feature</label></li>
+<li><input type="checkbox" id="checkbox50"><label for="checkbox50">w/ Enclosure</label></li>
 </ul>
 <p><strong>Cable Operated Safety Switch:</strong></p>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Slack Cable</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Cable Detection</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Single Ended</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Double Ended</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> w/ Indicator Light</li>
+<ul style="list-style: none;">
+<li><input type="checkbox" id="checkbox51"><label for="checkbox51">Slack Cable</label></li>
+<li><input type="checkbox" id="checkbox52"><label for="checkbox52">Cable Detection</label></li>
+<li><input type="checkbox" id="checkbox53"><label for="checkbox53">Single Ended</label></li>
+<li><input type="checkbox" id="checkbox54"><label for="checkbox54">Double Ended</label></li>
+<li><input type="checkbox" id="checkbox55"><label for="checkbox55">w/ Indicator Light</label></li>
 </ul>
 <p><strong>Guard Door Monitoring Safety Switches:</strong></p>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Keyed Interlock</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Solenoid Latching Keyed Interlock</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Solenoid Latching Keyed Switch with Internal Release</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Non-Contact Switch</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Non-Contact Switch Stand Alone</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Non-Contact RFID Switch</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Latching Non-Contact Switch</li>
+<ul style="list-style: none;">
+<li><input type="checkbox" id="checkbox56"><label for="checkbox56">Keyed Interlock</label></li>
+<li><input type="checkbox" id="checkbox57"><label for="checkbox57">Solenoid Latching Keyed Interlock</label></li>
+<li><input type="checkbox" id="checkbox58"><label for="checkbox58">Solenoid Latching Keyed Switch with Internal Release</label></li>
+<li><input type="checkbox" id="checkbox59"><label for="checkbox59">Non-Contact Switch</label></li>
+<li><input type="checkbox" id="checkbox60"><label for="checkbox60">Non-Contact Switch Stand Alone</label></li>
+<li><input type="checkbox" id="checkbox61"><label for="checkbox61">Non-Contact RFID Switch</label></li>
+<li><input type="checkbox" id="checkbox62"><label for="checkbox62">Latching Non-Contact Switch</label></li>
 </ul>
 <p><strong>Trapped Key Interlocking System:</strong> Y/N</p>
 <p><strong>Two Hand Control:</strong> Y/N</p>
 <p><strong>Muting Required of Safety System For:</strong></p>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Material Transfer</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Loading/Unloading</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Part Forming</li>
+<ul style="list-style: none;">
+<li><input type="checkbox" id="checkbox63"><label for="checkbox63">Material Transfer</label></li>
+<li><input type="checkbox" id="checkbox64"><label for="checkbox64">Loading/Unloading</label></li>
+<li><input type="checkbox" id="checkbox65"><label for="checkbox65">Part Forming</label></li>
 </ul>
 <p><strong>Special Environmental and System Requirements:</strong></p>
-<ul>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Washdown / IP69K / IP68</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> ATEX / Explosion Proof</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Dual Channel System</li>
-<li class="task-list-item"><input type="checkbox" class="task-list-item-checkbox"> Single Channel System</li>
+<ul style="list-style: none;">
+<li><input type="checkbox" id="checkbox66"><label for="checkbox66">Washdown / IP69K / IP68</label></li>
+<li><input type="checkbox" id="checkbox67"><label for="checkbox67">ATEX / Explosion Proof</label></li>
+<li><input type="checkbox" id="checkbox68"><label for="checkbox68">Dual Channel System</label></li>
+<li><input type="checkbox" id="checkbox69"><label for="checkbox69">Single Channel System</label></li>
 </ul>
 <p><strong>Notes on Application:</strong></p>
 <p><strong>Cross Reference Part Number:</strong></p>
 <hr>
+<div style="text-align: center">
+    <div class="footer">
+            <img src="images/rees-inc-logo.png" alt="Rees">
+            <img src="images/suns.png" alt="SUNS">
+            <img src="images/contrinex.png" alt="Contrinex">
+            <img src="images/salzer.png" alt="Saelzer">
+            <img src="images/roland.png" alt="Roland Electronic">
+            <img src="images/aso-safety-solutions.png" alt="ASO">
+            <img src="images/lineseiki.webp" alt="Lineseiki">
+            <img src="images/rechner.jpeg" alt="Rechner">
+            <img src="images/pizzato.webp" alt="Pizzato">
+            <img src="images/bernstein.jpeg" alt="Bernstein">
+            <img src="images/dold.svg" alt="Dold">
+            <img src="images/comitronic.png" alt="Comitronic">
+            <img src="images/adelsystem.png" alt="Adelsystem">
+    </div>
 </div>
-      </div>
-      
-      
-    
-    
-    
-    
-    
-    
-    
-    
-  
-    </body></html>
+
+</body>
+</html>
