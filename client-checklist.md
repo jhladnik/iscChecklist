@@ -7,6 +7,13 @@
 </div>
 
 <style type="text/css">
+
+    @media print {
+        ul {
+            list-style: none;
+        }
+    }
+
     .tg td{
         font-family:Arial, sans-serif;
         font-size:14px;
