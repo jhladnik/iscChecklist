@@ -1,4 +1,4 @@
- <div style="text-align:center;">
+<div style="text-align:center;">
     <img src="images/logo.webp" alt="ISC, Inc."  style="width:250px">
    <br>
     www.safeworkplace.org<br>
